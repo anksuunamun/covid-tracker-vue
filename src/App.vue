@@ -2,7 +2,7 @@
   <div id="app">
     <Header/>
     <div class="container">
-<!--      <router-view/>-->
+<!-- @-->
       <Home/>
     </div>
   </div>
@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Home from './views/Home.vue'
+import Header from "@/components/Header";
+import Home from "@/views/Home";
 
 export default {
   name: 'App',

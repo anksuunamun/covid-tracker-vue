@@ -1,6 +1,6 @@
 <template>
   <div v-if="!isLoading">
-    Show Data
+    <LocationHeader :date="date" :location="location"/>
   </div>
   <div class="flex flex-col align-center justify-center text-center" v-else>
     <div class="text-3xl mt-10 mb-6">
@@ -11,9 +11,11 @@
 </template>
 
 <script>
+import LocationHeader from "@/components/LocationHeader";
+
 export default {
   name: 'Home',
-  components: {},
+  components: {LocationHeader},
   data() {
     return {
       isLoading: true,
