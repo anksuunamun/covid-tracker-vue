@@ -2,8 +2,8 @@
   <div id="app">
     <Header/>
     <div class="container">
-      <router-view/>
-      Cont
+<!--      <router-view/>-->
+      <Home/>
     </div>
   </div>
 
@@ -11,12 +11,14 @@
 
 <script>
 import Header from './components/Header.vue'
+import Home from './views/Home.vue'
 
 export default {
   name: 'App',
   components: {
-    Header
-  }
+    Header,
+    Home
+  },
 }
 </script>
 
