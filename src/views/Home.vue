@@ -1,5 +1,6 @@
 <template>
   <div v-if="!isLoading">
+    <CountrySelect :countries="countries"/>
     <LocationHeader :date="date" :location="location"/>
     <LocationBody :statistics="statistics"/>
   </div>
@@ -14,10 +15,11 @@
 <script>
 import LocationHeader from "@/components/LocationHeader";
 import LocationBody from "@/components/LocationBody";
+import CountrySelect from "@/components/CountrySelect";
 
 export default {
   name: 'Home',
-  components: {LocationBody, LocationHeader},
+  components: {CountrySelect, LocationBody, LocationHeader},
   data() {
     return {
       isLoading: true,

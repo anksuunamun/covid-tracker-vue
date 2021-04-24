@@ -2,7 +2,6 @@
   <div id="app">
     <Header/>
     <div class="container">
-<!-- @-->
       <Home/>
     </div>
   </div>
@@ -22,7 +21,3 @@ export default {
 }
 </script>
 
-<style>
-
-
-</style>
