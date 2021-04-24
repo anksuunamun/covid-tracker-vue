@@ -1,6 +1,6 @@
 <template>
   <div v-if="!isLoading">
-    <CountrySelect :countries="countries"/>
+    <CountrySelect :countries="countries" @get-country="getCountryData"/>
     <LocationHeader :date="date" :location="location"/>
     <LocationBody :statistics="statistics"/>
   </div>
@@ -34,6 +34,10 @@ export default {
     async getCovidData() {
       const response = await fetch('https://api.covid19api.com/summary')
       return await response.json()
+    },
+    async getCountryData(country) {
+      this.statistics = country
+      this.location = country.Country
     }
   },
   async created() {
