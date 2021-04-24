@@ -22,6 +22,9 @@ module.exports = {
             'bright-pink': '#fa60ad',
             'dirty-pink': '#af4379',
             'white': '#fff'
+        },
+        fontFamily: {
+            'roboto': ['Roboto', 'sans-serif'],
         }
     },
     variants: {

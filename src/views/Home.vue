@@ -1,6 +1,9 @@
 <template>
   <div v-if="!isLoading">
     <CountrySelect :countries="countries" @get-country="getCountryData"/>
+    <button @click="clearCountry"
+            class="bg-dirty-blue text-white p-3 rounded focus:outline-none hover:bg-bright-blue">Reset country
+    </button>
     <LocationHeader :date="date" :location="location"/>
     <LocationBody :statistics="statistics"/>
   </div>
@@ -35,9 +38,16 @@ export default {
       const response = await fetch('https://api.covid19api.com/summary')
       return await response.json()
     },
-    async getCountryData(country) {
+    getCountryData(country) {
       this.statistics = country
       this.location = country.Country
+    },
+    async clearCountry() {
+      this.isLoading = true
+      let data = await this.getCovidData()
+      this.location = 'Global'
+      this.statistics = data.Global
+      this.isLoading = false
     }
   },
   async created() {
