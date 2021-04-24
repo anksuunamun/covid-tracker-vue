@@ -1,6 +1,7 @@
 <template>
   <div v-if="!isLoading">
     <LocationHeader :date="date" :location="location"/>
+    <LocationBody :statistics="statistics"/>
   </div>
   <div class="flex flex-col align-center justify-center text-center" v-else>
     <div class="text-3xl mt-10 mb-6">
@@ -12,16 +13,17 @@
 
 <script>
 import LocationHeader from "@/components/LocationHeader";
+import LocationBody from "@/components/LocationBody";
 
 export default {
   name: 'Home',
-  components: {LocationHeader},
+  components: {LocationBody, LocationHeader},
   data() {
     return {
       isLoading: true,
       location: 'Global',
       date: '',
-      statistic: {},
+      statistics: {},
       countries: [],
       preloader: require('../assets/Circle-Preloaders.svg')
     }
@@ -35,7 +37,7 @@ export default {
   async created() {
     const data = await this.getCovidData()
     this.date = data.Date
-    this.statistic = data.Global
+    this.statistics = data.Global
     this.countries = data.Countries
     this.isLoading = false
   }
