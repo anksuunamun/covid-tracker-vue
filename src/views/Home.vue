@@ -1,17 +1,14 @@
 <template>
-  <div v-if="!isLoading">
-    <CountrySelect :countries="countries" @get-country="getCountryData"/>
-    <button @click="clearCountry"
-            class="bg-dirty-blue text-white p-3 rounded focus:outline-none hover:bg-bright-blue">Reset country
-    </button>
+  <div v-if="!isLoading" class="text-center">
     <LocationHeader :date="date" :location="location"/>
     <LocationBody :statistics="statistics"/>
+    <CountrySelect :countries="countries" @get-country="getCountryData"/>
+    <button @click="clearCountry"
+            class="bg-dirty-blue text-white p-3 px-7 rounded focus:outline-none hover:bg-bright-blue">Reset country
+    </button>
   </div>
   <div class="flex flex-col align-center justify-center text-center" v-else>
-    <div class="text-3xl mt-10 mb-6">
-      Fetching Data
-    </div>
-    <img :src="preloader" alt="preloader" class="w-25 mx-auto">
+    <img :src="preloader" alt="preloader" class="w-64 mx-auto">
   </div>
 </template>
 

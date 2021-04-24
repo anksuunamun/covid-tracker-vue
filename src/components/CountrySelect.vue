@@ -3,7 +3,7 @@
     <label>
       <select @change="onChange()"
               v-model="selected"
-              class="form-select mb-3 block border rounded">
+              class="form-select mb-6 mt-6 block border rounded mx-auto">
         <option value="0">Select country</option>
         <option v-for="country in countries" v-bind:key="country.ID" :value="country.ID">{{ country.Country }}</option>
       </select>
